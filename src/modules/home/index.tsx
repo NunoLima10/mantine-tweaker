@@ -15,7 +15,6 @@ export function Home() {
           <Anchor href="https://mantinehub.com/" target="_blank">
             MantineHub
           </Anchor>
-          ,{" "}
           <Anchor href="https://tweakcn.com/" target="_blank">
             tweakcn
           </Anchor>
@@ -28,9 +27,11 @@ export function Home() {
           the future, it may be able to copy the Mantine createTheme object.
         </Text>
         <Text c="primary.5" ta={"center"} size="sm" maw={"300"}>
-          All themes are provided by tweakcn, this project will be open sourced
-          soon too
+          All themes are provided by tweakcn
         </Text>
+        <Anchor href="https://github.com/NunoLima10/mantine-tweaker/" target="_blank">
+          GitHub Repo
+        </Anchor>
       </Stack>
       <ColorPallete />
       <TestComponensts />
