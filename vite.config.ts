@@ -12,5 +12,5 @@ export default defineConfig({
     },
   },
   plugins: [react()],
-  base: "/mantine-tweaker",
+  base: "/mantine-tweaker/",
 });
