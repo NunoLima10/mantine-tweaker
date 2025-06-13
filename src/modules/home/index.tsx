@@ -9,12 +9,16 @@ export function Home() {
       <Title>Mantine Tweaker</Title>
 
       <ThemeSelector />
+      <Text c="primary.5" ta={"center"} size="sm" maw={"300"}>
+        All themes are provided by tweakcn
+      </Text>
       <Stack maw={"600"} align="center">
         <Text c="dimmed">
           This is an experimental project inspired by{" "}
           <Anchor href="https://mantinehub.com/" target="_blank">
             MantineHub
           </Anchor>
+          {","}
           <Anchor href="https://tweakcn.com/" target="_blank">
             tweakcn
           </Anchor>
@@ -26,10 +30,11 @@ export function Home() {
           manual adjustments. This project is still a work in progress, and in
           the future, it may be able to copy the Mantine createTheme object.
         </Text>
-        <Text c="primary.5" ta={"center"} size="sm" maw={"300"}>
-          All themes are provided by tweakcn
-        </Text>
-        <Anchor href="https://github.com/NunoLima10/mantine-tweaker/" target="_blank">
+
+        <Anchor
+          href="https://github.com/NunoLima10/mantine-tweaker/"
+          target="_blank"
+        >
           GitHub Repo
         </Anchor>
       </Stack>
