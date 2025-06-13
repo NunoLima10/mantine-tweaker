@@ -31,19 +31,26 @@ export type ThemeStyle = {
   "sidebar-accent-foreground": string;
   "sidebar-border": string;
   "sidebar-ring": string;
-  "font-sans"?: string;
-  "font-serif"?: string;
-  "font-mono"?: string;
-  radius?: string;
-  "shadow-color"?: string;
-  "shadow-opacity"?: string;
-  "shadow-blur"?: string;
-  "shadow-spread"?: string;
-  "shadow-offset-x"?: string;
-  "shadow-offset-y"?: string;
+  "font-sans": string;
+  "font-serif": string;
+  "font-mono": string;
+  radius: string;
+  "shadow-color": string;
+  "shadow-opacity": string;
+  "shadow-blur": string;
+  "shadow-spread": string;
+  "shadow-offset-x": string;
+  "shadow-offset-y": string;
+  "letter-spacing": string;
+  spacing: string;
+};
+export type Style = {
+  light: Partial<ThemeStyle>;
+  dark: Partial<ThemeStyle>;
 };
 
-export type Style = {
-  light: ThemeStyle;
-  dark: ThemeStyle;
+export type ThemePreset = {
+  createdAt?: string;
+  label?: string;
+  styles: Style;
 };

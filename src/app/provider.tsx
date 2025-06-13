@@ -1,21 +1,22 @@
+import ThemeProvider from "@/context/theme";
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import { Notifications } from "@mantine/notifications";
 import "@mantine/notifications/styles.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import {  theme } from "./theme";
-
-type AppProviderProps = {
-  children: React.ReactNode;
-};
+import { PropsWithChildren } from "react";
 
 const queryClient = new QueryClient({});
 
-export function AppProvider({ children }: AppProviderProps) {
+export function AppProvider({ children }: PropsWithChildren) {
   return (
-    <MantineProvider  theme={theme}>
-      <Notifications autoClose={5000} position="top-center" />
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    <MantineProvider>
+      <ThemeProvider>
+        <Notifications autoClose={5000} position="top-center" />
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>
+      </ThemeProvider>
     </MantineProvider>
   );
 }

@@ -1,14 +1,38 @@
-import { Stack, Title } from "@mantine/core";
-import { ColorPallete } from "../../components/colo-pallete/color-pallete";
+import { ColorPallete } from "@/components/colo-pallete/color-pallete";
+import { Anchor, Stack, Text, Title } from "@mantine/core";
 import { TestComponensts } from "../../components/test-components/test-components";
-import { ToggleShemeButton } from "../../components/toggle-sheme-button/toggle-sheme-button";
+import { ThemeSelector } from "../theme-selector";
 
 export function Home() {
   return (
     <Stack align="center" mt={"xl"} gap={"xl"}>
-      <Title>Mantheming</Title>
-      {/* <ColorPallete /> */}
-      <ToggleShemeButton />
+      <Title>Mantine Tweaker</Title>
+
+      <ThemeSelector />
+      <Stack maw={"600"} align="center">
+        <Text c="dimmed">
+          This is an experimental project inspired by{" "}
+          <Anchor href="https://mantinehub.com/" target="_blank">
+            MantineHub
+          </Anchor>
+          ,{" "}
+          <Anchor href="https://tweakcn.com/" target="_blank">
+            tweakcn
+          </Anchor>
+          , and other Mantine theme editors. However, it follows a different
+          approach it overlays the colors used by Mantine itself.
+        </Text>
+        <Text c="dimmed">
+          Note that some themes may not be fully functional and may require
+          manual adjustments. This project is still a work in progress, and in
+          the future, it may be able to copy the Mantine createTheme object.
+        </Text>
+        <Text c="primary.5" ta={"center"} size="sm" maw={"300"}>
+          All themes are provided by tweakcn, this project will be open sourced
+          soon too
+        </Text>
+      </Stack>
+      <ColorPallete />
       <TestComponensts />
     </Stack>
   );
