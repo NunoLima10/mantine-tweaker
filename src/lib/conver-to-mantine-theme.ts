@@ -7,7 +7,6 @@ import {
 } from "@mantine/core";
 
 export function convertToMantineTheme(style: Style): MantineThemeOverride {
-
   if (!style || !style.light || !style.dark) {
     throw new Error("Invalid style object provided");
   }

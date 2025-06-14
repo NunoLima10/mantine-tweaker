@@ -1,8 +1,16 @@
 import { ToggleShemeButton } from "@/components/toggle-sheme-button/toggle-sheme-button";
 import { useTheme } from "@/hooks/use-theme";
 import { defaultPresets } from "@/lib/theme-presets";
-import { Flex, Group, Paper, Select, SelectProps, Stack } from "@mantine/core";
-import { IconPalette } from "@tabler/icons-react";
+import {
+  ActionIcon,
+  Flex,
+  Group,
+  Paper,
+  Select,
+  SelectProps,
+} from "@mantine/core";
+import { useClipboard } from "@mantine/hooks";
+import { IconCopy, IconPalette } from "@tabler/icons-react";
 
 const themes = Object.entries(defaultPresets).map(([key, value]) => key);
 
@@ -38,11 +46,11 @@ const renderSelectOption: SelectProps["renderOption"] = ({
 );
 
 export function ThemeSelector() {
-  const { switchTheme } = useTheme();
+  const { switchTheme, themeObjectString } = useTheme();
+    const clipboard = useClipboard({ timeout: 500 });
 
   function handleThemeChange(value: string | null) {
     if (!value) return;
-
     switchTheme(value);
   }
 
@@ -50,7 +58,6 @@ export function ThemeSelector() {
     <Flex align={"center"} justify={"center"} gap={"xs"}>
       <Select
         leftSection={<IconPalette size={18} />}
-        // label="Seleciona um tema"
         placeholder="Sem tema"
         data={themes}
         onChange={handleThemeChange}
@@ -60,6 +67,14 @@ export function ThemeSelector() {
         w={300}
       />
       <ToggleShemeButton />
+      <ActionIcon
+        variant="default"
+        size="input-sm"
+        aria-label="Alternar esquema de cores"
+        onClick={() => clipboard.copy(themeObjectString || "")}
+      >
+        <IconCopy size={18} stroke={1.5} />
+      </ActionIcon>
     </Flex>
   );
 }
