@@ -58,7 +58,7 @@ export function ThemeSelector() {
     <Flex align={"center"} justify={"center"} gap={"xs"}>
       <Select
         leftSection={<IconPalette size={18} />}
-        placeholder="Sem tema"
+        placeholder="Select a theme"
         data={themes}
         onChange={handleThemeChange}
         searchable

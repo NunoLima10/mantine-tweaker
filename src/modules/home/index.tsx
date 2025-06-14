@@ -7,12 +7,11 @@ export function Home() {
   return (
     <Stack align="center" mt={"xl"} gap={"xl"}>
       <Title>Mantine Tweaker</Title>
-
       <ThemeSelector />
-      <Text c="primary.5" ta={"center"} size="sm" maw={"300"}>
+      <Anchor size="sm" mt={-20} href="https://tweakcn.com/" target="_blank">
         All themes are provided by tweakcn
-      </Text>
-      <Stack maw={"600"} align="center">
+      </Anchor>
+      <Stack p={"lg"} maw={"600"} align="center">
         <Text c="dimmed">
           This is an experimental project inspired by{" "}
           <Anchor href="https://mantinehub.com/" target="_blank">

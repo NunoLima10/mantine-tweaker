@@ -7,6 +7,7 @@ import {
   Flex,
   Menu,
   NavLink,
+  Notification,
   Paper,
   Skeleton,
   Stack,
@@ -28,12 +29,13 @@ import {
   IconSettings,
   IconTrash,
 } from "@tabler/icons-react";
+import { ModalButton } from "../modal-button/modal-button";
 
 export function TestComponensts() {
   return (
     <>
       <Divider my="md" />
-      <Flex>
+      <Flex wrap={"wrap"} justify={"center"} gap={"lg"}>
         <Text maw={400}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi tempore
           voluptas vitae error velit, modi exercitationem dolor, distinctio
@@ -47,43 +49,49 @@ export function TestComponensts() {
           provident expedita magni voluptatibus!
         </Text>
       </Flex>
-      <Menu shadow="md" width={200}>
-        <Menu.Target>
-          <Button>Toggle menu</Button>
-        </Menu.Target>
+      <Flex wrap={"wrap"} justify={"center"} gap={"lg"}>
+        <Menu shadow="md" width={200}>
+          <Menu.Target>
+            <Button>Toggle menu</Button>
+          </Menu.Target>
 
-        <Menu.Dropdown>
-          <Menu.Label>Application</Menu.Label>
-          <Menu.Item leftSection={<IconSettings size={14} />}>
-            Settings
-          </Menu.Item>
-          <Menu.Item leftSection={<IconMessageCircle size={14} />}>
-            Messages
-          </Menu.Item>
-          <Menu.Item leftSection={<IconPhoto size={14} />}>Gallery</Menu.Item>
-          <Menu.Item
-            leftSection={<IconSearch size={14} />}
-            rightSection={
-              <Text size="xs" c="dimmed">
-                ⌘K
-              </Text>
-            }
-          >
-            Search
-          </Menu.Item>
+          <Menu.Dropdown>
+            <Menu.Label>Application</Menu.Label>
+            <Menu.Item leftSection={<IconSettings size={14} />}>
+              Settings
+            </Menu.Item>
+            <Menu.Item leftSection={<IconMessageCircle size={14} />}>
+              Messages
+            </Menu.Item>
+            <Menu.Item leftSection={<IconPhoto size={14} />}>Gallery</Menu.Item>
+            <Menu.Item
+              leftSection={<IconSearch size={14} />}
+              rightSection={
+                <Text size="xs" c="dimmed">
+                  ⌘K
+                </Text>
+              }
+            >
+              Search
+            </Menu.Item>
 
-          <Menu.Divider />
+            <Menu.Divider />
 
-          <Menu.Label>Danger zone</Menu.Label>
-          <Menu.Item leftSection={<IconArrowsLeftRight size={14} />}>
-            Transfer my data
-          </Menu.Item>
-          <Menu.Item color="red" leftSection={<IconTrash size={14} />}>
-            Delete my account
-          </Menu.Item>
-        </Menu.Dropdown>
-      </Menu>
-      <Flex gap={"lg"}>
+            <Menu.Label>Danger zone</Menu.Label>
+            <Menu.Item leftSection={<IconArrowsLeftRight size={14} />}>
+              Transfer my data
+            </Menu.Item>
+            <Menu.Item color="red" leftSection={<IconTrash size={14} />}>
+              Delete my account
+            </Menu.Item>
+          </Menu.Dropdown>
+        </Menu>
+        <ModalButton />
+      </Flex>
+      <Notification title="We notify you that">
+        You are now obligated to give a star to Mantine project on GitHub
+      </Notification>
+      <Flex wrap={"wrap"} justify={"center"} gap={"lg"}>
         <Button>Button</Button>
         <Button variant="light">Button</Button>
         <Button variant="outline">Button</Button>
@@ -93,7 +101,7 @@ export function TestComponensts() {
         <Button variant="gradient">Button</Button>
         <Button disabled>Button</Button>
       </Flex>
-      <Flex gap={"lg"}>
+      <Flex wrap={"wrap"} justify={"center"} gap={"lg"}>
         <Button size="compact-sm">Button</Button>
         <Button variant="light" size="compact-sm">
           Button
@@ -118,7 +126,7 @@ export function TestComponensts() {
         </Button>
       </Flex>
 
-      <Flex gap={"lg"}>
+      <Flex wrap={"wrap"} justify={"center"} gap={"lg"}>
         <Chip defaultChecked>Awesome chip</Chip>
         <Chip defaultChecked variant="light">
           Awesome chip
@@ -127,7 +135,7 @@ export function TestComponensts() {
           Awesome chip
         </Chip>
       </Flex>
-      <Flex>
+      <Flex wrap={"wrap"} justify={"center"} gap={"lg"}>
         <Fieldset legend="Personal information" w={400}>
           <TextInput label="Your name" placeholder="Your name" />
           <TextInput label="Email" placeholder="Email" mt="md" />
