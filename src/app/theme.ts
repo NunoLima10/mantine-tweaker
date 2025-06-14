@@ -1,4 +1,4 @@
-import { createTheme, lighten, virtualColor } from "@mantine/core";
+import { createTheme, darken, lighten, virtualColor } from "@mantine/core";
 
 function hexToRgba(hex: string, alpha: number): string {
   let r = 0,
@@ -113,7 +113,7 @@ const colors = [
 //   },
 // });
 
-const style1 = {
+const style = {
   light: {
     background: "#faf5fa",
     foreground: "#501854",
@@ -185,7 +185,7 @@ const style1 = {
   },
 } as const;
 
-const style = {
+const style2 = {
   light: {
     background: "#F1F0E5",
     foreground: "#56453F",
@@ -266,17 +266,61 @@ const style = {
     "shadow-color": "hsl(20 18% 30% / 0.5)",
   },
 };
+
+const light = {
+  body: style.light.background,
+  text: style.light.foreground,
+  hover: style.light.secondary as string,
+  menuHover: lighten(style.light.secondary, .3),
+  disabledBG: style.light.muted as string,
+  border: style.light.input as string, //skelont
+  inputBoder: style.light.border,
+  placeholder: style.light["muted-foreground"], // disabled-text
+  dimmed: hexToRgba(style.light["muted-foreground"], .3),
+  closeX: style.light["accent-foreground"],
+  unknown: "red",
+  notifictionTitle: style.light.foreground,
+};
+const lightPrimary = {
+  filled: style.light.primary, //outline
+  hover: lighten(style.light.primary, 0.15),
+};
+
+const dark = {
+  body: style.dark.background,
+  text: style.dark.foreground,
+  hover: style.dark.secondary as string,
+  menuHover: lighten(style.dark.secondary, .3),
+  disabledBG: style.dark.muted as string,
+  border: style.dark.input as string, //skelont
+  inputBoder: style.dark.border,
+  placeholder: style.dark["muted-foreground"], // disabled-text
+  dimmed: lighten(style.dark["muted-foreground"], .3),
+  closeX: style.dark["accent-foreground"],
+  unknown: "red",
+  notifictionTitle: style.dark.foreground,
+};
+
+const darkPrimary = {
+  filled: style.dark.primary,
+  hover: darken(style.dark.primary, .15),
+  text: style.dark.foreground,
+  buttonOuntline: style.dark.primary,
+  lightButton: style.dark.primary,
+  link: style.dark.primary,
+};
+
 export const theme = createTheme({
   defaultRadius: "0.5rem",
   //mantine-primary-color-contrast
-  white: style.light.background, //light-mode body-color/background-color
-  black: style.light.foreground, //light-mode text-color
+  white: light.body, //light-mode body-color/background-color
+  black: light.text, //light-mode text-color
   primaryColor: "primary",
   primaryShade: 5,
-  defaultGradient:{
+  defaultGradient: {
     from: style.light.accent,
     to: style.dark.accent,
-    deg:113
+    deg: 113,
   },
   colors: {
     primary: virtualColor({
@@ -286,55 +330,55 @@ export const theme = createTheme({
     }),
     //dark -mode
     dark: [
-      style.dark.foreground, //text color
-      "red",
-      style.dark["muted-foreground"], //dimmed-color
-      style.dark["muted-foreground"], //placeholder-color ,
-      style.dark.border, //border-color
-      style.dark.accent, //hover-color
-      style.dark.muted, //disabled-color
-      style.dark.background, //body-color/background-color
-      "blue",
+      dark.text,
+      dark.closeX,
+      dark.dimmed,
+      dark.placeholder,
+      dark.inputBoder,
+      dark.hover,
+      dark.disabledBG,
+      dark.body,
+      darken(dark.body, .2),
       "blue",
     ],
 
     //light -mode
     gray: [
-      //hover-color
-      style.light.secondary,
-      style.light.muted,
-      style.light.muted, //disabled-bg-color
-      style.light.input, //skelont-color
-      style.light.border, //border-color
-      style.light["muted-foreground"], //placeholder-color, disabled-color
-      hexToRgba(style.light["muted-foreground"], 0.3), //dimmed-color
-      "yellow",
-      "green",
-      style.dark["muted-foreground"],
+      light.hover,
+      light.menuHover,
+      light.disabledBG,
+      light.border,
+      light.inputBoder,
+      light.placeholder,
+      light.dimmed,
+      light.closeX,
+      light.unknown,
+      light.notifictionTitle,
     ],
     primarylight: [
-      style.dark.foreground,
-      "#d0ebff",
-      "#a5d8ff",
-      "#74c0fc",
-      "#4dabf7",
-      style.light.primary, //color filled, outline
-      lighten(style.light.primary, 0.15), //color-filled-hover
-      "#1c7ed6",
-      "#1971c2",
-      "#1864ab",
+      "green",
+      "green",
+      "green",
+      "green",
+      "green",
+      lightPrimary.filled,
+      lightPrimary.hover,
+      "green",
+      "green",
+      "green",
     ],
     primarydark: [
-      style.dark.foreground,
-      style.dark.primary,
-      "#ff00ff",
-      style.dark.primary,
-      "#4dabf7",
-      style.dark.primary, //color filled, outline
-      lighten(style.dark.primary, 0.15), //color-filled-hover
-      "#1c7ed6",
-      "#1971c2",
-      "#1864ab",
+      darkPrimary.text,
+      darkPrimary.buttonOuntline,
+      "yellow",
+      darkPrimary.lightButton,
+      darkPrimary.link,
+      darkPrimary.filled,
+      darkPrimary.hover,
+      "yellow",
+      "yellow",
+      "yellow",
     ],
   },
 });
+
